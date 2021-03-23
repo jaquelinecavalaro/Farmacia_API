@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Entity
-@Table(name = "Categoria") //vamos criar a tabela
+@Table(name = "categoria") //vamos criar a tabela
 public class CategoriaModel {
 	
 	@Id
@@ -37,7 +37,7 @@ public class CategoriaModel {
 	
 	@OneToMany(mappedBy = "categoria" , cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("categoria")
-	private List <ProdutoModel> Produto;
+	private List <ProdutoModel> produto;
 	
 	
 	//fazer o get e set
@@ -73,14 +73,5 @@ public class CategoriaModel {
 	public void setReceita(boolean receita) {
 		this.receita = receita;
 	}
-
-	public List<ProdutoModel> getProduto() {
-		return Produto;
-	}
-
-	public void setProduto(List<ProdutoModel> produto) {
-		Produto = produto;
-	}
-	
 	
 }

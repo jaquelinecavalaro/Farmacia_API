@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.farm.farmacia.Repository.CategoriaRepository;
 import com.farm.farmacia.model.CategoriaModel;
+import com.farm.farmacia.model.ProdutoModel;
 
 @RestController
 @RequestMapping("/Categoria") //meu end point
@@ -43,10 +44,10 @@ public class CategoriaController {
 		return ResponseEntity.ok(repository.findAllByNomeContainingIgnoreCase(nome));
 	}
 	
-	/*@GetMapping ("/descricao/{descricao}")
-	public ResponseEntity <List<CategoriaModel>> GetByDescricao(@PathVariable String descricao){
-		return ResponseEntity.ok(repository.findAllByNomeContainingIgnoreCase(descricao));
-	}*/
+	@GetMapping("/descricao/{descricao}")
+	public ResponseEntity <List <CategoriaModel>>GetByDescricao(@PathVariable String descricao){
+		return ResponseEntity.ok(repository.findAllByDescricaoContainingIgnoreCase(descricao));
+	}
 	
 	@PostMapping
 	public ResponseEntity <CategoriaModel> post (@RequestBody CategoriaModel categoria){
